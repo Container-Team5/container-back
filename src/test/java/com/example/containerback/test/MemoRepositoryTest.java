@@ -1,11 +1,9 @@
 package com.example.containerback.test;
 
+import com.example.containerback.model.MemoRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Optional;
-import java.util.stream.IntStream;
 
 
 @SpringBootTest
