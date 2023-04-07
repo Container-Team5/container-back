@@ -1,4 +1,4 @@
-package com.example.containerback.test;
+package com.example.containerback.model;
 
 import jakarta.persistence.*;
 import lombok.*;
