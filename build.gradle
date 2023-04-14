@@ -34,7 +34,7 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
-def frontendDir = "$projectDir/src/main/reactfront"
+def frontendDir = "$projectDir/src/main/container-front"
 
 sourceSets {
     main {
