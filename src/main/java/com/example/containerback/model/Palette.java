@@ -2,6 +2,7 @@ package com.example.containerback.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
 
@@ -17,7 +18,7 @@ public class Palette {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //MySQL의 AUTO_INCREMENT를 사용
     private Long pId; // 팔레트 ID
 
-    @Column(length = 255, nullable = false)
+    @Column(length = 255)
     private String pName;  // 상품명
 
     @Column(length = 4, nullable = false)
@@ -38,11 +39,11 @@ public class Palette {
     @Column(length = 6, nullable = false)
     private float weight;  // 무게
 
-    @JoinColumn(name = "userId")
-    @ManyToOne
-    private User user;  // FK
+//    @JoinColumn(name = "facName")
+//    @ManyToOne
+//    private User user;  // FK
     
-    @Column(nullable = false)
+    @CreationTimestamp
     private Timestamp dLine;  // 출고 마감 시간
     
     @Column(nullable = false)
