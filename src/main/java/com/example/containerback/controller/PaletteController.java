@@ -1,7 +1,7 @@
 package com.example.containerback.controller;
 
-import com.example.containerback.model.Palette;
-import com.example.containerback.model.PaletteRepository;
+import com.example.containerback.domain.Palette;
+import com.example.containerback.domain.PaletteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

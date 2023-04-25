@@ -1,4 +1,4 @@
-package com.example.containerback.model;
+package com.example.containerback.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -38,7 +38,6 @@ public class Palette {
     @Column(length = 6, nullable = false)
     private float weight;  // 무게
 
-    @JoinColumn(name = "userId")
     @ManyToOne
     private User user;  // FK
     

@@ -1,7 +1,7 @@
 package com.example.containerback.controller;
 
-import com.example.containerback.model.Admin;
-import com.example.containerback.model.AdminRepository;
+import com.example.containerback.domain.Admin;
+import com.example.containerback.domain.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

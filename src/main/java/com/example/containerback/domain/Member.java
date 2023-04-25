@@ -1,4 +1,4 @@
-package com.example.containerback.model;
+package com.example.containerback.domain;
 
 import jakarta.persistence.*;
 import lombok.*;

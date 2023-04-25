@@ -1,4 +1,4 @@
-package com.example.containerback.model;
+package com.example.containerback.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
