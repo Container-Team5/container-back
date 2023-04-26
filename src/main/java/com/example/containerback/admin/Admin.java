@@ -31,4 +31,5 @@ public class Admin {
     
     @Column(length = 15, nullable = false)
     private String admCall;  // 전화번호
+
 }
