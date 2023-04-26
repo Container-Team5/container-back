@@ -1,4 +1,4 @@
-package com.example.containerback.domain;
+package com.example.containerback.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

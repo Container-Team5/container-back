@@ -1,5 +1,6 @@
-package com.example.containerback.domain;
+package com.example.containerback.palette;
 
+import com.example.containerback.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
