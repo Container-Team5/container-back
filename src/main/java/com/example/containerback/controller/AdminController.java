@@ -1,5 +1,6 @@
-package com.example.containerback.admin;
+package com.example.containerback.controller;
 
+import com.example.containerback.admin.AdminService;
 import com.example.containerback.form.AdminCreateForm;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/admin")
+@RequestMapping("/account")
 public class AdminController {
     private final AdminService adminService;
 
@@ -32,5 +33,10 @@ public class AdminController {
                 adminCreateForm.getAdPwd1(), adminCreateForm.getAdName(), adminCreateForm.getDepartment(), adminCreateForm.getPosition(), adminCreateForm.getAdmCall());
 
         return "redirect:/";
+    }
+
+    @GetMapping("/Login")
+    public String login() {
+        return "LoginPage";
     }
 }
