@@ -1,10 +1,12 @@
 package com.example.containerback.palette;
 
+import com.example.containerback.controller.CreatePaletteRequest;
 import com.example.containerback.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @ToString
 @Getter
@@ -43,7 +45,7 @@ public class Palette {
     private User user;  // FK
     
     @Column(nullable = false)
-    private Timestamp dLine;  // 출고 마감 시간
+    private LocalDateTime dLine;  // 출고 마감 시간
     
     @Column(nullable = false)
     private String firstDel;  // 1차 배송지
@@ -51,5 +53,16 @@ public class Palette {
     @Column(nullable = false)
     private String finalDel;  // 최종 배송지
 
-
+    public Palette(CreatePaletteRequest request){
+        this.pName = request.pName;
+        this.quantity = request.quantity;
+        this.width = request.width;
+        this.length = request.length;
+        this.height = request.height;
+        this.volume = this.width * this.length * this.height;
+        this.weight = request.weight;
+        this.dLine = request.dline;
+        this.firstDel = request.firstDel;
+        this.finalDel = request.finalDel;
+    }
 }
