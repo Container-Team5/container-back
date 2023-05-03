@@ -24,7 +24,7 @@ public class SecurityConfig {
                         XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
                 .and()
                 .formLogin()
-                .loginPage("/account/Login")
+                .loginPage("/main/container-front/src/page/login/LoginPage2.js")
                 .defaultSuccessUrl("/");
         return http.build();
     }

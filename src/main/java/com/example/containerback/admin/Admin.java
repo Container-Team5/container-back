@@ -3,19 +3,20 @@ package com.example.containerback.admin;
 import jakarta.persistence.*;
 import lombok.*;
 @ToString
+@Data
 @Setter
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Admin")
+@Table(name = "Admin", uniqueConstraints = {@UniqueConstraint(columnNames = "adId")})
 @Entity
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //MySQL의 AUTO_INCREMENT를 사용
     private Long IndexAdId;  // 관리자 ID index
 
-    @Column(nullable = false)
+    @Column(name = "adId", nullable = false)
     private String adId; //회원가입시 기입한 관리자 ID
     @Column(length = 20, nullable = false)
     private String adPwd;  // 관리자 비밀번호
