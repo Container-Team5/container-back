@@ -14,6 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //MySQL의 AUTO_INCREMENT를 사용
     private Long uId;  // 사용자 ID
+
     
     @Column(length = 20, nullable = false)
     private String uPwd;  // 사용자 비밀 번호

@@ -1,9 +1,7 @@
 package com.example.containerback.controller;
-
-import com.example.containerback.admin.Admin;
-import com.example.containerback.admin.AdminRepository;
-import com.example.containerback.admin.AdminService;
-import com.example.containerback.form.AdminCreateForm;
+import com.example.containerback.user.User;
+import com.example.containerback.user.UserRepository;
+import com.example.containerback.user.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -20,12 +18,12 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/account")
-public class AdminController {
-    private AdminService adminService;
+public class UserController {
+    private UserService userService;
 
-    @PostMapping("/admin")
-    public Admin registAdmin(@RequestBody Admin admin) {
-        System.out.println(admin);
-        return adminService.registAdmin(admin);
+    @PostMapping("/user")
+    public User registAdmin(@RequestBody User user) {
+        System.out.println(user);
+        return userService.registUser(user);
     }
 }
