@@ -41,8 +41,8 @@ public class Palette {
     @Column(length = 6, nullable = false)
     private float weight;  // 무게
 
-    @ManyToOne
-    private User user;  // FK
+//    @ManyToOne
+//    private User user;  // FK
 
     @Column(nullable = false)
     private LocalDateTime dLine;  // 출고 마감 시간

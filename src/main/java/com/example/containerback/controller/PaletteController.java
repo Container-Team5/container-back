@@ -10,7 +10,7 @@ import java.util.Optional;
 @RequestMapping("/api")
 @RequiredArgsConstructor
 public class PaletteController {
-    PaletteRepository paletteRepository;
+    final PaletteRepository paletteRepository;
 
     @PostMapping("/palette")
     public Palette create(@RequestBody CreatePaletteRequest request) { return paletteRepository.save(new Palette(request)); }
