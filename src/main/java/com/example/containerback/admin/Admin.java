@@ -39,4 +39,19 @@ public class Admin {
     @Column
     private UserStatus state; //회원 관리 상태
 
+    public Admin(String adId, String adPwd, String adName, String department, String position, String admCall, UserStatus state, String refreshToken) {
+        this.adId = adId;
+        this.adPwd = adPwd;
+        this.adName = adName;
+        this.department = department;
+        this.position = position;
+        this.admCall = admCall;
+        this.state = state;
+        this.refreshToken = refreshToken;
+    }
+
+    public void updateRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+    }
+
 }

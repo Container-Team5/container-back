@@ -9,7 +9,4 @@ public class AdminService {
 
     private final AdminRepository adminRepository;
 
-    public Admin registAdmin(Admin admin) {
-        return adminRepository.save(admin);
-    }
 }

@@ -1,6 +1,5 @@
 package com.example.containerback;
 
-import com.example.containerback.admin.Admin;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -10,6 +9,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,7 +24,6 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Component
-
 public class JwtTokenProvider {
     @Value("${jwt.secretKey}")
     private String secretKey;
@@ -37,24 +36,27 @@ public class JwtTokenProvider {
         this.key = Keys.hmacShaKeyFor(this.secretKey.getBytes());
     }
 
+    @Bean
     public String createAccessToken(String adId) {
         return generateToken(adId, accessTokenValidMilSecond);
     }
 
-    public String createRefreshToken(String userId) {
-        return generateToken(userId, refreshTokenValidMilSecond);
+    @Bean
+    public String createRefreshToken(String adId) {
+        return generateToken(adId, refreshTokenValidMilSecond);
     }
 
-    protected String generateToken(String userId, long tokenValidMilSecond) {
+    protected String generateToken(String adId, long tokenValidMilSecond) {
         Date now = new Date();
         return Jwts.builder()
-                .claim("userId",userId)
+                .claim("adId",adId)
                 .setIssuedAt(now)
                 .setExpiration(new Date(now.getTime() + tokenValidMilSecond))
                 .signWith(this.key, SignatureAlgorithm.HS256)
                 .compact();
     }
 
+    @Bean
     public Claims resolveToken(HttpServletRequest req) {
         String token = req.getHeader("Authorization");
         if (token == null)
@@ -75,16 +77,17 @@ public class JwtTokenProvider {
                 .getBody();
     }
 
+    @Bean
     public Authentication getAuthentication(Claims claims) {
-        return new UsernamePasswordAuthenticationToken(this.getUserId(claims), "", getAuthorities(claims));
+        return new UsernamePasswordAuthenticationToken(this.getAdId(claims), "", getAuthorities(claims));
     }
 
-    public String getUserId(Claims claims) {
+    public String getAdId(Claims claims) {
         return claims.getSubject();
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(Claims claims) {
-        List<String> userId = claims.get("userId", List.class);
-        return userId.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+        List<String> adId = claims.get("adId", List.class);
+        return adId.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 }

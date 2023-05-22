@@ -1,19 +1,17 @@
 package com.example.containerback.controller;
 
-import com.example.containerback.admin.Admin;
-import com.example.containerback.admin.AdminService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/account")
+@RequestMapping(value ="/account", produces = MediaTypes.HAL_JSON_VALUE)
 public class AdminController {
-    private AdminService adminService;
 
-    @PostMapping("/Admin")
+    /*@PostMapping("/Admin")
     public Admin registAdmin(@RequestBody Admin admin) {
         System.out.println(admin);
         return adminService.registAdmin(admin);
-    }
+    }*/
 }
