@@ -9,7 +9,6 @@ import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -36,12 +35,10 @@ public class JwtTokenProvider {
         this.key = Keys.hmacShaKeyFor(this.secretKey.getBytes());
     }
 
-    @Bean
     public String createAccessToken(String adId) {
         return generateToken(adId, accessTokenValidMilSecond);
     }
 
-    @Bean
     public String createRefreshToken(String adId) {
         return generateToken(adId, refreshTokenValidMilSecond);
     }
@@ -56,7 +53,7 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    @Bean
+
     public Claims resolveToken(HttpServletRequest req) {
         String token = req.getHeader("Authorization");
         if (token == null)
@@ -77,7 +74,7 @@ public class JwtTokenProvider {
                 .getBody();
     }
 
-    @Bean
+
     public Authentication getAuthentication(Claims claims) {
         return new UsernamePasswordAuthenticationToken(this.getAdId(claims), "", getAuthorities(claims));
     }

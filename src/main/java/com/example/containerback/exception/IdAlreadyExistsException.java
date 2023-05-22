@@ -1,4 +1,4 @@
-package com.example.containerback;
+package com.example.containerback.exception;
 
 public class IdAlreadyExistsException extends RuntimeException {
     /**

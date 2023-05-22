@@ -1,4 +1,4 @@
-package com.example.containerback;
+package com.example.containerback.exception;
 
 public class CantSignInException extends RuntimeException {
     /**

@@ -1,4 +1,5 @@
-package com.example.containerback;
+package com.example.containerback.request;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SignInResponse {
-    private String accessToken;
-    private String refreshToken;
+public class SignInRequest {
+    private String id;
+    private String password;
 }
