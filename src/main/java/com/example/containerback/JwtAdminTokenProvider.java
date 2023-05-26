@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Component
-public class JwtTokenProvider {
+public class JwtAdminTokenProvider {
     @Value("${jwt.secretKey}")
     private String secretKey;
     private Key key;

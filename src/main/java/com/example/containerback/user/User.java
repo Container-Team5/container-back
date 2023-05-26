@@ -1,5 +1,6 @@
 package com.example.containerback.user;
 
+import com.example.containerback.admin.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -33,5 +34,23 @@ public class User {
     
     @Column(length = 200, nullable = false)
     private String location;  // 위치
+
+    @Column
+    private String refreshToken;
+    @Column
+    private UserStatus userStatus;
+
+    public User(Long uId, String uPwd, String facName, String rep, String facCall, String location, UserStatus userStatus, String refreshToken) {
+        this.uId = uId;
+        this.uPwd = uPwd;
+        this.facName = facName;
+        this.rep = rep;
+        this.facCall = facCall;
+        this.location = location;
+        this.userStatus = userStatus;
+        this.refreshToken = refreshToken;
+    }
+
+    public void updateRefreshToken(String refreshToken) { this.refreshToken = refreshToken; }
 
 }

@@ -1,6 +1,7 @@
 package com.example.containerback;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -19,11 +20,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 public class SecurityConfig {
 
-    private final JwtTokenProvider jwtTokenProvider;
+    private final JwtAdminTokenProvider jwtAdminTokenProvider;
     private final ObjectMapper objectMapper;
 
-    public SecurityConfig(JwtTokenProvider jwtTokenProvider, ObjectMapper objectMapper) {
-        this.jwtTokenProvider = jwtTokenProvider;
+    @Autowired
+    public SecurityConfig(JwtAdminTokenProvider jwtAdminTokenProvider, ObjectMapper objectMapper) {
+        this.jwtAdminTokenProvider = jwtAdminTokenProvider;
         this.objectMapper = objectMapper;
     }
 
@@ -51,7 +53,7 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
                 .and()
-                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, objectMapper), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthenticationFilter(jwtAdminTokenProvider, objectMapper), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

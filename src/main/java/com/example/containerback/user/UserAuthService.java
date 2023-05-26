@@ -1,6 +1,7 @@
-package com.example.containerback.admin;
+package com.example.containerback.user;
 
-import com.example.containerback.*;
+import com.example.containerback.JwtUserTokenProvider;
+import com.example.containerback.admin.UserStatus;
 import com.example.containerback.exception.CantSignInException;
 import com.example.containerback.exception.IdAlreadyExistsException;
 import com.example.containerback.request.RefreshRequest;
@@ -13,10 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class AuthService {
+public class UserAuthService {
 
-    private final AdminRepository adminRepository;
-    private final JwtTokenProvider jwtTokenProvider;
+    private final UserRepository userRepository;
+    private final JwtUserTokenProvider jwtUserTokenProvider;
     private final PasswordEncoder passwordEncoder;
 
     /**
@@ -28,17 +29,18 @@ public class AuthService {
      * @return accessToken
      * @throws CantSignInException 회원가입이 되어있지 않거나 잠긴 계정입니다.
      */
+
     @Transactional
-    public SignInResponse signIn(String id, String password) {
-        Admin admin = this.adminRepository.findByAdIdAndState(id, UserStatus.NORMAL, Admin.class)
-                .orElseThrow(() -> new CantSignInException(id));
-        if (!passwordEncoder.matches(password, admin.getAdPwd()))
-            throw new CantSignInException(id);
-        admin.updateRefreshToken(jwtTokenProvider.createRefreshToken(admin.getAdId()));
+    public SignInResponse signIn(Long id, String password) {
+        User user = this.userRepository.findByUIdAndUserStatus(id, UserStatus.NORMAL, User.class)
+                .orElseThrow(() -> new CantSignInException(id.toString()));
+        if (!passwordEncoder.matches(password, user.getUPwd()))
+            throw new CantSignInException(id.toString());
+        user.updateRefreshToken(jwtUserTokenProvider.createRefreshToken(user.getUId()));
 
         return SignInResponse.builder()
-                .accessToken(jwtTokenProvider.createAccessToken(admin.getAdId()))
-                .refreshToken(admin.getRefreshToken())
+                .accessToken(jwtUserTokenProvider.createAccessToken(user.getUId()))
+                .refreshToken(user.getRefreshToken())
                 .build();
     }
 
@@ -48,26 +50,25 @@ public class AuthService {
      *
      * @param id       사용자 ID
      * @param password 사용자 비밀번호
-     * @param name     사용자 이름
+     * @param facName     업체명
      * @return accessToken
      */
     @Transactional
-    public SignInResponse signUp(String id, String password, String name, String department, String position, String admCall) {
-        Admin admin = adminRepository.save(
-                new Admin(
+    public SignInResponse signUp(Long id, String password, String facName, String rep, String facCall, String location) {
+        User user = userRepository.save(
+                new User(
                         id,
                         passwordEncoder.encode(password),
-                        name,
-                        department,
-                        position,
-                        admCall,
+                        facName,
+                        rep,
+                        facCall,
+                        location,
                         UserStatus.NORMAL,
-                        jwtTokenProvider.createRefreshToken(id)
+                        jwtUserTokenProvider.createRefreshToken(id)
                 ));
-
         return SignInResponse.builder()
-                .accessToken(jwtTokenProvider.createAccessToken(admin.getAdId()))
-                .refreshToken(admin.getRefreshToken())
+                .accessToken(jwtUserTokenProvider.createAccessToken(user.getUId()))
+                .refreshToken(user.getRefreshToken())
                 .build();
     }
 
@@ -78,9 +79,9 @@ public class AuthService {
      * @throws IdAlreadyExistsException 이미 사용중인 아이디입니다.
      */
     @Transactional(readOnly = true)
-    public void idCheck(String id) {
-        if (this.adminRepository.findByAdIdAndStateIsNot(id, UserStatus.WITHDRAWAL).isPresent())
-            throw new IdAlreadyExistsException(id);
+    public void idCheck(Long id) {
+        if (this.userRepository.findByUIdAndUserStatusIsNot(id, UserStatus.WITHDRAWAL).isPresent())
+            throw new IdAlreadyExistsException(id.toString());
     }
 
     /**
@@ -91,12 +92,12 @@ public class AuthService {
      */
     @Transactional
     public RefreshResponse refreshAccessToken(RefreshRequest refreshRequest) {
-        String refreshId = jwtTokenProvider.getAdId(jwtTokenProvider.getClaimsFromToken(refreshRequest.getRefreshToken()));
-        Admin admin = adminRepository.findByAdIdAndStateAndRefreshToken(refreshId, UserStatus.NORMAL, refreshRequest.getRefreshToken())
+        String refreshId = jwtUserTokenProvider.getUId(jwtUserTokenProvider.getClaimsFromToken(refreshRequest.getRefreshToken()));
+        User user = userRepository.findByUIdAndUserStatusAndRefreshToken(Long.parseLong(refreshId), UserStatus.NORMAL, refreshRequest.getRefreshToken())
                 .orElseThrow(() -> new CantSignInException(refreshId));
 
         return RefreshResponse.builder()
-                .accessToken(jwtTokenProvider.createAccessToken(admin.getAdId()))
+                .accessToken(jwtUserTokenProvider.createAccessToken(user.getUId()))
                 .build();
     }
 }

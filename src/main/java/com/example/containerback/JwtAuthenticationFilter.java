@@ -22,15 +22,15 @@ import java.io.IOException;
 
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends GenericFilterBean {
-    private final JwtTokenProvider jwtTokenProvider;
+    private final JwtAdminTokenProvider jwtAdminTokenProvider;
     private final ObjectMapper objectMapper;
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         try {
-            Claims claims = jwtTokenProvider.resolveToken((HttpServletRequest) request);
+            Claims claims = jwtAdminTokenProvider.resolveToken((HttpServletRequest) request);
             if (claims != null)
-                SecurityContextHolder.getContext().setAuthentication(jwtTokenProvider.getAuthentication(claims));
+                SecurityContextHolder.getContext().setAuthentication(jwtAdminTokenProvider.getAuthentication(claims));
             filterChain.doFilter(request, response);
         } catch (SignatureException e) {
             sendErrorMessage((HttpServletResponse) response, "0003", "유효하지 않은 토큰입니다.");
