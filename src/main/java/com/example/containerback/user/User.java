@@ -2,9 +2,13 @@ package com.example.containerback.user;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.List;
 
 @ToString
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,4 +33,5 @@ public class User {
     
     @Column(length = 200, nullable = false)
     private String location;  // 위치
+
 }
