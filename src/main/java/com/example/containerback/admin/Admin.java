@@ -21,7 +21,7 @@ public class Admin {
 
     @Column(nullable = false)
     private String userId; //회원가입시 기입한 관리자 ID
-    @Column(length = 20, nullable = false)
+    @Column(length = 500, nullable = false)
     private String password;  // 관리자 비밀번호
 
     @Column
