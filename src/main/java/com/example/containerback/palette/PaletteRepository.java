@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PaletteRepository extends JpaRepository<Palette, Long> {
-    List<Palette> findAllByPName(String pName);
-    List<Palette> findAllByDLineGreaterThanEqualAndDLineLessThanEqual(LocalDateTime dLineFrom, LocalDateTime dLineTo);
+    List<Palette> findAllByPaletteName(String pName);
+    List<Palette> findAllByDeadLineGreaterThanEqualAndDeadLineLessThanEqual(LocalDateTime DeadLineFrom, LocalDateTime DeadLineTo);
 }

@@ -34,9 +34,9 @@ public class PaletteController {
             @RequestParam(required = false) LocalDateTime dLineTo
             ) {
         if (pName != null)
-            return paletteRepository.findAllByPName(pName);
+            return paletteRepository.findAllByPaletteName(pName);
         if(dLineFrom != null && dLineTo != null)
-            return paletteRepository.findAllByDLineGreaterThanEqualAndDLineLessThanEqual(dLineFrom, dLineTo);
+            return paletteRepository.findAllByDeadLineGreaterThanEqualAndDeadLineLessThanEqual(dLineFrom, dLineTo);
         return paletteRepository.findAll();
     }
 }

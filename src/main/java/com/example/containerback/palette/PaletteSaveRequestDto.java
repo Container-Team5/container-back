@@ -47,14 +47,14 @@ public class PaletteSaveRequestDto {
     }
     public Palette toEntity(){
         return Palette.builder()
-                .pName(pName)
+                .paletteName(pName)
                 .quantity(quantity)
                 .width(width)
                 .length(length)
                 .height(height)
                 .volume(volume)
                 .weight(weight)
-                .dLine(dLine)
+                .deadLine(dLine)
                 .firstDel(firstDel)
                 .finalDel(finalDel)
                 .build();
