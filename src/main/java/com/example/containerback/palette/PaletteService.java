@@ -1,7 +1,5 @@
 package com.example.containerback.palette;
 
-import com.example.containerback.palette.PaletteRepository;
-import com.example.containerback.palette.PaletteSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,5 +12,6 @@ public class PaletteService {
 
     @Transactional
     public Long save(final PaletteSaveRequestDto requestDto) {
-        return postsRepository.save(requestDto.toEntity()).getPId();}
+        return postsRepository.save(requestDto.toEntity()).getPId();
+    }
 }

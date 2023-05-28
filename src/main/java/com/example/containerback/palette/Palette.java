@@ -1,12 +1,10 @@
 package com.example.containerback.palette;
 
-import com.example.containerback.controller.CreatePaletteRequest;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @ToString
