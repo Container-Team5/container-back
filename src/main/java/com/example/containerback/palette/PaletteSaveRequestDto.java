@@ -1,11 +1,8 @@
 package com.example.containerback.palette;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Column;
-import jakarta.persistence.ManyToOne;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
@@ -47,17 +44,16 @@ public class PaletteSaveRequestDto {
     }
     public Palette toEntity(){
         return Palette.builder()
-                .pName(pName)
+                .paletteName(pName)
                 .quantity(quantity)
                 .width(width)
                 .length(length)
                 .height(height)
                 .volume(volume)
                 .weight(weight)
-                .dLine(dLine)
+                .deadLine(dLine)
                 .firstDel(firstDel)
                 .finalDel(finalDel)
                 .build();
     }
 }
-

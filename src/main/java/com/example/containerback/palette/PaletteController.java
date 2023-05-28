@@ -2,6 +2,9 @@ package com.example.containerback.palette;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,5 +24,19 @@ public class PaletteController {
         paletteOptional.ifPresent(System.out::println);
 
         return "successfully executed";
+    }
+
+    @GetMapping("/palette")
+    public List<Palette> searchPalette(
+            @RequestParam(required = false) String pName,
+            //localhost:8080/palette?pName=이름&dLineFrom=날짜&dLineTo=날짜
+            @RequestParam(required = false) LocalDateTime dLineFrom,
+            @RequestParam(required = false) LocalDateTime dLineTo
+    ) {
+        if (pName != null)
+            return paletteRepository.findAllByPaletteName(pName);
+        if(dLineFrom != null && dLineTo != null)
+            return paletteRepository.findAllByDeadLineGreaterThanEqualAndDeadLineLessThanEqual(dLineFrom, dLineTo);
+        return paletteRepository.findAll();
     }
 }
