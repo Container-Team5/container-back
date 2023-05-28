@@ -1,0 +1,24 @@
+POST http://localhost:8080/account/signin
+Content-Type: application/json
+
+{
+  "userId" : "hi",
+  "password" : "0"
+}
+
+###
+
+POST http://localhost:8080/account/signup
+Content-Type: application/json
+
+{
+  "userId" : "hi",
+  "password" : "0",
+  "adName" : "이영진",
+  "department" : "물류팀",
+  "position" : "대리",
+  "admCall" : "01012345678",
+  "roles" : "ROLE_ADMIN"
+}
+
+###
