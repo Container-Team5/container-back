@@ -1,0 +1,16 @@
+POST http://localhost:8080/palette
+Content-Type: application/json
+
+
+{
+  "pName":"Why",
+  "quantity": 120,
+  "width": 20.0,
+  "length": 20.0,
+  "height": 20.0,
+  "weight": 20.0,
+  "dLine" : "2023-05-24T14:56:20",
+  "firstDel": "경기도",
+  "finalDel": "수원시 장안구"
+}
+
