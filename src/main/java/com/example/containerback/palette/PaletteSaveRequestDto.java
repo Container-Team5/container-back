@@ -13,25 +13,24 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class PaletteSaveRequestDto {
 
-    private String pName;  // 상품명
+    public String pName;  // 상품명
+    public int quantity;  // 수량
 
-    private int quantity;  // 수량
+    public float width;  // 가로
 
-    private float width;  // 가로
+    public float length;  // 세로
 
-    private float length;  // 세로
+    public float height;  // 높이
 
-    private float height;  // 높이
+    public float volume;  // 부피
 
-    private float volume;  // 부피
+    public float weight;  // 무게
 
-    private float weight;  // 무게
+    public LocalDateTime dLine;  // 출고 마감 시간
 
-    private LocalDateTime dLine;  // 출고 마감 시간
+    public String firstDel;  // 1차 배송지
 
-    private String firstDel;  // 1차 배송지
-
-    private String finalDel;  // 최종 배송지
+    public String finalDel;  // 최종 배송지
 
     @Builder
     public PaletteSaveRequestDto(final String pName, final int quantity, final float width, final float length, final float height, final float weight, final LocalDateTime dLine, final String firstDel, final String finalDel){
@@ -40,7 +39,7 @@ public class PaletteSaveRequestDto {
         this.width = width;
         this.length = length;
         this.height = height;
-        this.volume = length * height * width;
+        this.volume = this.length * this.height * this.width;
         this.weight = weight;
         this.dLine = dLine;
         this.firstDel = firstDel;

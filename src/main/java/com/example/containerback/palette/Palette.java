@@ -59,7 +59,7 @@ public class Palette {
         this.width = width;
         this.length = length;
         this.height = height;
-        this.volume = volume;
+        this.volume = this.height * this.length * this.width;
         this.weight = weight;
         this.dLine = dLine;
         this.firstDel = firstDel;
