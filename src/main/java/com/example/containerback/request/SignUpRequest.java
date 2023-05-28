@@ -11,11 +11,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class SignUpRequest {
-    private String id;
+    private String userId;
     private String password;
-    private String password2;
     private String call;
-    private String addepartment;
-    private String adposition;
-    private String name;
+    private String department;
+    private String position;
+    private String facName;
+    private String adName;
+    private String rep;
+    private String location;
+
 }

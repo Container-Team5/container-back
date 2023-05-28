@@ -9,9 +9,9 @@ import java.util.Optional;
 public interface AdminRepository extends JpaRepository<Admin, Long> {
 
     //계정 ID와 상태로 조회
-    <T> Optional<T> findByAdIdAndState(String adId, UserStatus state, Class<T> Class);
+    <T> Optional<T> findByUserIdAndState(String userId, UserStatus state, Class<T> Class);
     //계정 ID와 제외된 상태로 조회
-    Optional<AdminIdDto> findByAdIdAndStateIsNot(String adId, UserStatus state);
+    Optional<AdminIdDto> findByUserIdAndStateIsNot(String userId, UserStatus state);
     //계정 ID와 상태로 종회
-    Optional<Admin> findByAdIdAndStateAndRefreshToken(String userId, UserStatus state, String refreshToken);
+    Optional<Admin> findByUserIdAndStateAndRefreshToken(String userId, UserStatus state, String refreshToken);
 }

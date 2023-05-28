@@ -4,5 +4,5 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class AdminIdDto {
-    private String adId;
+    private String userId;
 }

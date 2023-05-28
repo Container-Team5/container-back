@@ -1,7 +1,8 @@
 package com.example.containerback.palette;
 
+import com.example.containerback.admin.Admin;
 import com.example.containerback.controller.CreatePaletteRequest;
-import com.example.containerback.user.User;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,7 +26,6 @@ public class Palette {
 
     @Column(length = 4, nullable = false)
     private int quantity;  // 수량
-
     @Column(length = 2, nullable = false)
     private float width;  // 가로
 
@@ -41,9 +41,6 @@ public class Palette {
     @Column(length = 6, nullable = false)
     private float weight;  // 무게
 
-    @ManyToOne
-    private User user;  // FK
-    
     @Column(nullable = false)
     private LocalDateTime dLine;  // 출고 마감 시간
     
