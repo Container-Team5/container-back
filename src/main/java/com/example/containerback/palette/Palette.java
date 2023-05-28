@@ -1,12 +1,10 @@
 package com.example.containerback.palette;
 
-import com.example.containerback.admin.Admin;
 import com.example.containerback.controller.CreatePaletteRequest;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @ToString
