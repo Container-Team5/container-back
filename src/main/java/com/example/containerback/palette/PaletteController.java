@@ -1,19 +1,10 @@
 package com.example.containerback.palette;
 
-import com.example.containerback.palette.Palette;
-import com.example.containerback.palette.PaletteRepository;
-import com.example.containerback.palette.PaletteSaveRequestDto;
-import com.example.containerback.palette.PaletteService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.MediaType;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -33,5 +24,19 @@ public class PaletteController {
         paletteOptional.ifPresent(System.out::println);
 
         return "successfully executed";
+    }
+
+    @GetMapping("/palette")
+    public List<Palette> searchPalette(
+            @RequestParam(required = false) String pName,
+            //localhost:8080/palette?pName=이름&dLineFrom=날짜&dLineTo=날짜
+            @RequestParam(required = false) LocalDateTime dLineFrom,
+            @RequestParam(required = false) LocalDateTime dLineTo
+            ) {
+        if (pName != null)
+            return paletteRepository.findAllByPName(pName);
+        if(dLineFrom != null && dLineTo != null)
+            return paletteRepository.findAllByDLineGreaterThanEqualAndDLineLessThanEqual(dLineFrom, dLineTo);
+        return paletteRepository.findAll();
     }
 }
