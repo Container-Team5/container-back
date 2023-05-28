@@ -12,6 +12,7 @@ public class AdminCreateForm {
     @NotEmpty(message = "사용자ID는 필수항목입니다.")
     private String adId;
 
+    @Size(min = 8, max = 16)
     @NotEmpty(message = "비밀번호는 필수항목입니다.")
     private String adPwd1;
 

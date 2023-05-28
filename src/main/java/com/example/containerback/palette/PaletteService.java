@@ -14,7 +14,5 @@ public class PaletteService {
 
     @Transactional
     public Long save(final PaletteSaveRequestDto requestDto) {
-        return postsRepository.save(requestDto.toEntity())
-                .getPId();
-    }
+        return postsRepository.save(requestDto.toEntity()).getPId();}
 }

@@ -34,13 +34,13 @@ public class PaletteSaveRequestDto {
     private String finalDel;  // 최종 배송지
 
     @Builder
-    public PaletteSaveRequestDto(final String pName,final int quantity,final float width,final float length,final float height,final float volume,final float weight,final LocalDateTime dLine,final String firstDel,final String finalDel){
+    public PaletteSaveRequestDto(final String pName, final int quantity, final float width, final float length, final float height, final float weight, final LocalDateTime dLine, final String firstDel, final String finalDel){
         this.pName = pName;
         this.quantity = quantity;
         this.width = width;
         this.length = length;
         this.height = height;
-        this.volume = volume;
+        this.volume = length * height * width;
         this.weight = weight;
         this.dLine = dLine;
         this.firstDel = firstDel;

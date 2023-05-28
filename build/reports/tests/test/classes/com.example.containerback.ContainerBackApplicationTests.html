@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.075s</div>
+<div class="counter">0.475s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">1.075s</td>
+<td class="success">0.475s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,14 +87,14 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>13:53:46.169 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [ContainerBackApplicationTests]: using SpringBootContextLoader
-13:53:46.206 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.example.containerback.ContainerBackApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
-13:53:46.209 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.containerback.ContainerBackApplicationTests]: ContainerBackApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-13:53:46.379 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [ContainerBackApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-13:53:46.951 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [C:\Users\hil07\IdeaProjects\container-back\build\classes\java\main\com\example\containerback\ContainerBackApplication.class]
-13:53:46.997 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.containerback.ContainerBackApplication for test class com.example.containerback.ContainerBackApplicationTests
-13:53:48.013 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [ContainerBackApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-13:53:48.020 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [ContainerBackApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+<pre>00:38:30.379 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [ContainerBackApplicationTests]: using SpringBootContextLoader
+00:38:30.401 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.example.containerback.ContainerBackApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+00:38:30.404 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.containerback.ContainerBackApplicationTests]: ContainerBackApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:38:30.517 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [ContainerBackApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+00:38:30.898 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [C:\Users\JUNG\IdeaProjects\container-back\build\classes\java\main\com\example\containerback\ContainerBackApplication.class]
+00:38:30.941 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.containerback.ContainerBackApplication for test class com.example.containerback.ContainerBackApplicationTests
+00:38:31.633 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [ContainerBackApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+00:38:31.640 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [ContainerBackApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -104,25 +104,25 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.5)
 
-2023-05-05T13:53:49.771+09:00  INFO 15288 --- [    Test worker] c.e.c.ContainerBackApplicationTests      : Starting ContainerBackApplicationTests using Java 17.0.4 with PID 15288 (started by SUKIOUOB in C:\Users\hil07\IdeaProjects\container-back)
-2023-05-05T13:53:49.778+09:00  INFO 15288 --- [    Test worker] c.e.c.ContainerBackApplicationTests      : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-05-05T13:53:54.906+09:00  INFO 15288 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-05-05T13:53:55.313+09:00  INFO 15288 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 350 ms. Found 3 JPA repository interfaces.
-2023-05-05T13:53:57.514+09:00  INFO 15288 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2023-05-05T13:53:57.756+09:00  INFO 15288 --- [    Test worker] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
-2023-05-05T13:53:59.625+09:00  INFO 15288 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-05-05T13:54:00.516+09:00  INFO 15288 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-05-05T13:54:04.281+09:00  INFO 15288 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-05-05T13:54:05.906+09:00  INFO 15288 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2bb0e277
-2023-05-05T13:54:05.931+09:00  INFO 15288 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-05-05T13:54:06.484+09:00  INFO 15288 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2023-05-05T13:54:13.687+09:00  INFO 15288 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-05-05T13:54:13.813+09:00  INFO 15288 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-05-05T13:54:20.574+09:00  WARN 15288 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-05-05T13:54:21.847+09:00  INFO 15288 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2023-05-05T13:54:22.669+09:00  WARN 15288 --- [    Test worker] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2023-05-05T13:54:24.016+09:00  INFO 15288 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@254210b1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@600a1270, org.springframework.security.web.context.SecurityContextHolderFilter@425a5c2e, org.springframework.security.web.header.HeaderWriterFilter@6c399d4, org.springframework.security.web.csrf.CsrfFilter@2821da0a, org.springframework.security.web.authentication.logout.LogoutFilter@6d96a895, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@21abd3a3, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@53945f9c, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3829306d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@75d61b62, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44a7661d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@40625ac6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28effa3f, org.springframework.security.web.access.ExceptionTranslationFilter@4def900a, org.springframework.security.web.access.intercept.AuthorizationFilter@27b84c9a]
-2023-05-05T13:54:24.472+09:00  INFO 15288 --- [    Test worker] c.e.c.ContainerBackApplicationTests      : Started ContainerBackApplicationTests in 36.084 seconds (process running for 47.218)
+2023-05-28T00:38:33.349+09:00  INFO 23652 --- [    Test worker] c.e.c.ContainerBackApplicationTests      : Starting ContainerBackApplicationTests using Java 17.0.4.1 with PID 23652 (started by JUNG in C:\Users\JUNG\IdeaProjects\container-back)
+2023-05-28T00:38:33.355+09:00  INFO 23652 --- [    Test worker] c.e.c.ContainerBackApplicationTests      : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-05-28T00:38:36.036+09:00  INFO 23652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-28T00:38:36.276+09:00  INFO 23652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 211 ms. Found 3 JPA repository interfaces.
+2023-05-28T00:38:37.507+09:00  INFO 23652 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-05-28T00:38:37.825+09:00  INFO 23652 --- [    Test worker] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-05-28T00:38:38.788+09:00  INFO 23652 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-28T00:38:39.047+09:00  INFO 23652 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-28T00:38:40.662+09:00  INFO 23652 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-28T00:38:41.053+09:00  INFO 23652 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2987d0fa
+2023-05-28T00:38:41.058+09:00  INFO 23652 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-28T00:38:41.203+09:00  INFO 23652 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-05-28T00:38:45.257+09:00  INFO 23652 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-28T00:38:45.274+09:00  INFO 23652 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-28T00:38:46.452+09:00  WARN 23652 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-28T00:38:46.773+09:00  INFO 23652 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-05-28T00:38:47.282+09:00  INFO 23652 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@30bfdcc5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e9b0c92, org.springframework.security.web.context.SecurityContextHolderFilter@402d76c7, org.springframework.security.web.header.HeaderWriterFilter@ef59aee, org.springframework.web.filter.CorsFilter@5bfeb9ba, org.springframework.security.web.authentication.logout.LogoutFilter@623d222, com.example.containerback.JwtAuthenticationFilter@4cf1bd4a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@a2ca681, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1fd77205, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b9c05f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26619e5, org.springframework.security.web.session.SessionManagementFilter@45a4587d, org.springframework.security.web.access.ExceptionTranslationFilter@17e4beda, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@ae5d544]
+2023-05-28T00:38:47.873+09:00  WARN 23652 --- [    Test worker] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-05-28T00:38:48.204+09:00  INFO 23652 --- [    Test worker] c.e.c.ContainerBackApplicationTests      : Started ContainerBackApplicationTests in 16.337 seconds (process running for 23.816)
 </pre>
 </span>
 </div>
@@ -134,7 +134,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 5. 5. 오후 1:54:26</p>
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 5. 28. 오전 12:38:49</p>
 </div>
 </div>
 </body>
