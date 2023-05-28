@@ -30,7 +30,7 @@ public class AuthController {
     public SignInResponse signUp(
             @RequestBody SignUpRequest signUpRequest
     ) {
-        return this.authService.signUp(signUpRequest.getUserId(), signUpRequest.getPassword(), signUpRequest.getFacName(), signUpRequest.getAdName(), signUpRequest.getRep(), signUpRequest.getDepartment(), signUpRequest.getPosition(), signUpRequest.getCall(), signUpRequest.getLocation());
+        return this.authService.signUp(signUpRequest);
     }
 
     @GetMapping("/checkid/{userId}")
