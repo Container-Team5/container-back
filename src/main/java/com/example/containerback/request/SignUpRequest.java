@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class SignUpRequest {
     private String userId;
     private String password;
-    private String call;
+    public String admCall;
     private String department;
     private String position;
     private String facName;

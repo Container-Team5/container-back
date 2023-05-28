@@ -26,7 +26,7 @@ public class AuthService {
      * 인증토큰 발급받기
      * 새로 로그인 할 때마다 RefreshToken 이 갱신된다.
      *
-     * @param id       사용자 ID
+     * @param userId       사용자 ID
      * @param password 사용자 비밀번호
      * @return accessToken
      * @throws CantSignInException 회원가입이 되어있지 않거나 잠긴 계정입니다.
@@ -45,16 +45,6 @@ public class AuthService {
                 .build();
     }
 
-    /**
-     * 회원 가입 하기
-     * 회원가입과 동시에 인증토큰 발급
-     *
-     * @param id       사용자 ID
-     * @param password 사용자 비밀번호
-     * @param adName   관리자 이름
-     * @param role
-     * @return accessToken
-     */
     @Transactional
     public SignInResponse signUp(SignUpRequest signUpRequest) {
         Admin admin = adminRepository.save(
@@ -66,7 +56,7 @@ public class AuthService {
                         signUpRequest.getRep(),
                         signUpRequest.getDepartment(),
                         signUpRequest.getPosition(),
-                        signUpRequest.getCall(),
+                        signUpRequest.getAdmCall(),
                         signUpRequest.getLocation(),
                         UserStatus.NORMAL,
                         jwtTokenProvider.createRefreshToken(signUpRequest.getUserId(),Collections.singletonList(UserRole.ROLE_USER)),
@@ -82,7 +72,7 @@ public class AuthService {
     /**
      * 중복 아이디 체크
      *
-     * @param id 사용자 ID
+     * @param userId 사용자 ID
      * @throws IdAlreadyExistsException 이미 사용중인 아이디입니다.
      */
     @Transactional(readOnly = true)
