@@ -10,17 +10,18 @@
 ##  "password" : "0"
 ##}
 
+
 #POST http://localhost:8080/container
 #Content-Type: application/json
 #
 #{
 #  "height" : 10.0,
-#  "length" : 30.0,
-#  "releaseDate" : "2023-06-09T18:09",
+#  "length" : 20.0,
+#  "releaseDate" : "2023-05-29T02:19",
 #  "weight" : 10.0,
 #  "weightLimit" : 300.0,
 #  "width" : 30.0
 #}
 
-GET http://localhost:8080/container/3
+GET http://localhost:8080/container/4
 Accept: application/json
