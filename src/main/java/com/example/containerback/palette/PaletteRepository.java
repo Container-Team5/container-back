@@ -8,8 +8,6 @@ import java.util.List;
 
 @Repository
 public interface PaletteRepository extends JpaRepository<Palette, Long> {
-    List<Palette> findAllByPaletteId(String pId);
     List<Palette> findAllByPaletteName(String pName);
     List<Palette> findAllByDeadLineGreaterThanEqualAndDeadLineLessThanEqual(LocalDateTime DeadLineFrom, LocalDateTime DeadLineTo);
-    List<Palette> findAllByFirstDel(String firstDel);
 }
