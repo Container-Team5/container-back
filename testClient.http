@@ -33,20 +33,18 @@ POST http://localhost:8080/palette
 Content-Type: application/json
 
 {
-  "pName": "Why",
-  "quantity": 120,
-  "width": 20.0,
-  "length": 20.0,
+  "pName": "생수",
+  "quantity": 150,
   "height": 20.0,
   "weight": 20.0,
-  "dLine": "2023-05-24T14:56:20.669",
+  "dLine": "2023-05-30T14:56:10.669",
   "firstDel": "경기도",
-  "finalDel": "수원시 장안구"
+  "finalDel": "수원시 영통구"
 }
 
 ###
 
-GET http://localhost:8080/palette?dLineFrom = 2023-05-23T00:00:20&dLineTo=2023-05-23T23:59:00
+GET http://localhost:8080/palette?dLineFrom = 2023-05-23T00:00:20&dLineTo=2023-05-30T23:59:00
 Accept: application/json
 
 ###
