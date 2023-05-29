@@ -1,28 +1,27 @@
-GET http://localhost:8080/account/checkid/hi
-Accept: application/json
+#GET http://localhost:8080/account/checkid/hi
+#Accept: application/json
+#
+####
+##POST http://localhost:8080/account/signin
+##Content-Type: application/json
+##
+##{
+##  "userId" : "hi",
+##  "password" : "0"
+##}
 
-###
 
-POST http://localhost:8080/account/signin
-Content-Type: application/json
+#POST http://localhost:8080/container
+#Content-Type: application/json
+#
+#{
+#  "height" : 10.0,
+#  "length" : 20.0,
+#  "releaseDate" : "2023-05-29T02:19",
+#  "weight" : 10.0,
+#  "weightLimit" : 300.0,
+#  "width" : 30.0
+#}
 
-{
-  "userId" : "hi",
-  "password" : "0"
-}
-
-###
-
-POST http://localhost:8080/container
-Content-Type: application/json
-
-{
-  "releaseDate" : "2023-05-29T02:19",
-  "weight" : 10.0,
-  "weightLimit" : 300.0
-}
-
-###
-
-GET http://localhost:8080/container?releaseDateFrom=2023-05-28T01:10:00&releaseDateTo=2023-06-03T03:20:00
+GET http://localhost:8080/container?releaseDateFrom="2023-05-28T01:10:00"&releaseDateTo="2023-06-03T03:20:00"
 Accept: application/json
