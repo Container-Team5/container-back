@@ -28,15 +28,21 @@ public class PaletteController {
 
     @GetMapping("/palette")
     public List<Palette> searchPalette(
+            @RequestParam(required = false) String pId,
             @RequestParam(required = false) String pName,
             //localhost:8080/palette?pName=이름&dLineFrom=날짜&dLineTo=날짜
             @RequestParam(required = false) LocalDateTime dLineFrom,
-            @RequestParam(required = false) LocalDateTime dLineTo
+            @RequestParam(required = false) LocalDateTime dLineTo,
+            @RequestParam(required = false) String firstDel
     ) {
+        if(pId != null)
+            return paletteRepository.findAllByPaletteId(pId);
         if (pName != null)
             return paletteRepository.findAllByPaletteName(pName);
         if(dLineFrom != null && dLineTo != null)
             return paletteRepository.findAllByDeadLineGreaterThanEqualAndDeadLineLessThanEqual(dLineFrom, dLineTo);
+        if(firstDel != null)
+            return paletteRepository.findAllByFirstDel(firstDel);
         return paletteRepository.findAll();
     }
 }

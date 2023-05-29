@@ -17,10 +17,10 @@ import java.util.List;
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //MySQL의 AUTO_INCREMENT를 사용
-    private Long IndexAdId;  // 관리자 ID index
+    private Long IndexAdId;  // ID index 관리자, 사옹자
 
     @Column(nullable = false)
-    private String userId; //회원가입시 기입한 관리자 ID
+    private String userId; //회원가입시 기입한  ID
     @Column(length = 500, nullable = false)
     private String password;  // 관리자 비밀번호
 

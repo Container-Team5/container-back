@@ -1,27 +1,76 @@
-#GET http://localhost:8080/account/checkid/hi
-#Accept: application/json
-#
+
+POST http://localhost:8080/palette
+Content-Type: application/json
+
+{
+  "pName": "Why",
+  "quantity": 120,
+  "width": 20.0,
+  "length": 20.0,
+  "height": 20.0,
+  "weight": 20.0,
+  "dLine": "2023-05-24T14:56:20.669",
+  "firstDel": "경기도",
+  "finalDel": "수원시 장안구"
+}
+
 ####
-##POST http://localhost:8080/account/signin
-##Content-Type: application/json
-##
-##{
-##  "userId" : "hi",
-##  "password" : "0"
-##}
-
-
-#POST http://localhost:8080/container
-#Content-Type: application/json
-#
-#{
-#  "height" : 10.0,
-#  "length" : 20.0,
-#  "releaseDate" : "2023-05-29T02:19",
-#  "weight" : 10.0,
-#  "weightLimit" : 300.0,
-#  "width" : 30.0
-#}
-
-GET http://localhost:8080/container?releaseDateFrom="2023-05-28T01:10:00"&releaseDateTo="2023-06-03T03:20:00"
+GET http://localhost:8080/palette?dLineFrom=2023-05-23T00:00:20&dLineTo=2023-05-23T23:59:00
 Accept: application/json
+
+####
+GET http://localhost:8080/palette?firstDel=경기도
+Accept: application/json
+
+####
+POST http://localhost:8080/account/signin
+Content-Type: application/json
+
+{
+  "userId" : "hi",
+  "password" : "0"
+}
+
+####
+POST http://localhost:8080/container
+Content-Type: application/json
+
+{ "height" : 10.0,
+  "length" : 20.0,
+  "releaseDate" : "2023-05-29T02:19",
+  "weight" : 10.0,
+  "weightLimit" : 300.0,
+  "width" : 30.0
+}
+
+
+####
+GET http://localhost:8080/container?releaseDateFrom=2023-05-28T01:10:00&releaseDateTo=2023-06-03T03:20:00
+Accept: application/json
+
+####
+GET http://localhost:8080/container?releaseDateFrom=2023-06-02T01:10:00&releaseDateTo=2023-06-02T03:20:00
+Accept: application/json
+
+####
+POST http://localhost:8080/account/signup
+Content-Type: application/json
+
+{
+  "userId" : "hi",
+  "password" : "0",
+  "adName" : "이영진",
+  "department" : "물류팀",
+  "position" : "대리",
+  "admCall" : "01012345678",
+  "roles" : "ROLE_ADMIN"
+}
+
+####
+POST http://localhost:8080/account/signin
+Content-Type: application/json
+
+{
+  "userId" : "hi",
+  "password" : "0"
+}
