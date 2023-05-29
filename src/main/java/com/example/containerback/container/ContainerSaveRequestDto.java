@@ -23,11 +23,7 @@ public class ContainerSaveRequestDto {
     public LocalDateTime releaseDate;  // 출고 마감 기한
 
     @Builder
-    public ContainerSaveRequestDto(final float width, final float length, final float height, final float weight, final float weightLimit, final LocalDateTime releaseDate) {
-        this.width = width;
-        this.length = length;
-        this.height = height;
-        this.volume = this.width * this.length * this.height;
+    public ContainerSaveRequestDto(final float weight, final float weightLimit, final LocalDateTime releaseDate) {
         this.weight = weight;
         this.weightLimit = weightLimit;
         this.releaseDate = releaseDate;
@@ -35,10 +31,6 @@ public class ContainerSaveRequestDto {
 
     public Container toEntity() {
         return Container.builder()
-                .width(width)
-                .length(length)
-                .height(height)
-                .volume(volume)
                 .weight(weight)
                 .weightLimit(weightLimit)
                 .releaseDate(releaseDate)

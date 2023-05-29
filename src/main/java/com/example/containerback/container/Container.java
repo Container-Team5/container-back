@@ -3,11 +3,16 @@ package com.example.containerback.container;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
 @ToString
+@DynamicInsert
+@DynamicUpdate
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,16 +24,20 @@ public class Container {
     private Long containerId;  // 컨테이너 ID
 
     @Column(nullable = false)
-    private float width;  // 가로(m)
+    @ColumnDefault("2.4")
+    private float width = 2.4F;  // 가로(m)
 
     @Column(nullable = false)
-    private float length;  // 세로(m)
+    @ColumnDefault("5.9")
+    private float length = 5.9F;  // 세로(m)
 
     @Column(nullable = false)
-    private float height;  // 높이(m)
+    @ColumnDefault("2.4")
+    private float height = 2.4F;  // 높이(m)
 
     @Column
-    private float volume;  // 부피(m^3)
+    @ColumnDefault("34.0")
+    private float volume = 34.0F;  // 부피(m^3)
 
     @Column(nullable = false)
     private float weight;  // 무게(kg)
@@ -42,11 +51,7 @@ public class Container {
     private LocalDateTime releaseDate;  // 출고 마감 기한
 
     @Builder
-    public Container(final float width, final float length, final float height, final float volume, final float weight, final float weightLimit, final LocalDateTime releaseDate) {
-        this.width = width;
-        this.length = length;
-        this.height = height;
-        this.volume = this.height * this.length * this.width;
+    public Container(final float weight, final float weightLimit, final LocalDateTime releaseDate) {
         this.weight = weight;
         this.weightLimit = weightLimit;
         this.releaseDate = releaseDate;
