@@ -23,5 +23,5 @@
 #  "width" : 30.0
 #}
 
-GET http://localhost:8080/container/4
+GET http://localhost:8080/container?releaseDateFrom="2023-05-28T01:10:00"&releaseDateTo="2023-06-03T03:20:00"
 Accept: application/json
