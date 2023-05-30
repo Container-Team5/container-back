@@ -34,7 +34,7 @@ public class Loadcp {
 
     @Builder
     public Loadcp(final long containerId, final long paletteId) {
-        this.containerId = containerId;
-        this.paletteId = paletteId;
+        this.container.setContainerId(containerId);
+        this.palette.setPaletteId(paletteId);
     }
 }
