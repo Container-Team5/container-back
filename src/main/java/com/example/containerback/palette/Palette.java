@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 public class Palette {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //MySQL의 AUTO_INCREMENT를 사용
-    private Long pId; // 팔레트 ID
+    private Long paletteId; // 팔레트 ID
 
     @Column(name = "p_name", nullable = false)
     private String paletteName;  // 상품명

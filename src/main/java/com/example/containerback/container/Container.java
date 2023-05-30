@@ -11,9 +11,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
 
 @ToString
+@Getter
 @DynamicInsert
 @DynamicUpdate
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "Container")

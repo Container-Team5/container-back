@@ -8,9 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class PaletteService {
 
-    private final PaletteRepository postsRepository;
+    private final PaletteRepository paletteRepository;
 
     @Transactional
     public Long save(final PaletteSaveRequestDto requestDto) {
-        return postsRepository.save(requestDto.toEntity()).getPId();}
+        return paletteRepository.save(requestDto.toEntity()).getPaletteId();}
 }
