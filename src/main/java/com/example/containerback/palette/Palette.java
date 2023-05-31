@@ -1,5 +1,6 @@
 package com.example.containerback.palette;
 
+import com.example.containerback.admin.Admin;
 import com.example.containerback.container.Container;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -67,6 +68,10 @@ public class Palette {
     @JsonIgnore
     @ManyToMany(mappedBy = "containpalettes")
     private Set<Container> containerSet = new HashSet<>();
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "orderpalettes")
+    private Set<Admin> adminSet = new HashSet<>();
 
 
     @Builder

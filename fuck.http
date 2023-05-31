@@ -1,3 +1,20 @@
+####
+PUT http://localhost:8080/container/2/palette/1
+Content-Type: application/json
+
+{
+
+}
+
+####
+PUT http://localhost:8080/account/amdin/3/palette/1
+Content-Type: application/json
+
+{
+
+}
+
+####
 
 POST http://localhost:8080/palette
 Content-Type: application/json
@@ -73,6 +90,48 @@ Content-Type: application/json
 }
 
 ####
+POST http://localhost:8080/account/signup
+Content-Type: application/json
+
+{
+  "userId" : "bye",
+  "password" : "1",
+  "adName" : "이진영",
+  "department" : "품질관리팀",
+  "position" : "과장",
+  "admCall" : "01087654321",
+  "roles" : "ROLE_ADMIN"
+}
+
+####
+POST http://localhost:8080/account/signup
+Content-Type: application/json
+
+{
+  "userId" : "thank",
+  "password" : "2",
+  "rep" : "강유진",
+  "facName" : "SIB",
+  "location" : "경기도 수원시 이의동",
+  "admCall" : "01087654321",
+  "roles" : "ROLE_USER"
+}
+
+####
+POST http://localhost:8080/account/signup
+Content-Type: application/json
+
+{
+  "userId" : "sorry",
+  "password" : "3",
+  "rep" : "김주은",
+  "facName" : "인천국제공항",
+  "location" : "경기도 수원시 이의동",
+  "admCall" : "01087654321",
+  "roles" : "ROLE_USER"
+}
+
+####
 POST http://localhost:8080/account/signin
 Content-Type: application/json
 
@@ -80,3 +139,4 @@ Content-Type: application/json
   "userId" : "hi",
   "password" : "0"
 }
+

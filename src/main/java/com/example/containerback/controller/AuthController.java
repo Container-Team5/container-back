@@ -1,6 +1,8 @@
 package com.example.containerback.controller;
 
+import com.example.containerback.admin.Admin;
 import com.example.containerback.admin.AuthService;
+import com.example.containerback.container.Container;
 import com.example.containerback.request.RefreshRequest;
 import com.example.containerback.request.SignInRequest;
 import com.example.containerback.request.SignUpRequest;
@@ -48,5 +50,13 @@ public class AuthController {
             @RequestBody RefreshRequest refreshRequest
     ) {
         return this.authService.refreshAccessToken(refreshRequest);
+    }
+
+    @PutMapping("/amdin/{IndexAdId}/palette/{paletteId}")
+    public Admin orderPalettesToAdmin(
+            @PathVariable Long IndexAdId,
+            @PathVariable Long paletteId
+    ){
+        return authService.orderPalettesToAdmin(IndexAdId, paletteId);
     }
 }
