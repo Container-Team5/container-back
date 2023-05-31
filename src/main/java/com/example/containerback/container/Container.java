@@ -1,5 +1,6 @@
 package com.example.containerback.container;
 
+import com.example.containerback.palette.Palette;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,8 +10,13 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @ToString
+@Setter
 @Getter
 @DynamicInsert
 @DynamicUpdate
@@ -21,6 +27,7 @@ import java.time.LocalDateTime;
 public class Container {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="container_Id")
     private Long containerId;  // 컨테이너 ID
 
     @Column(nullable = false)
@@ -49,6 +56,13 @@ public class Container {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     @Column(nullable = false)
     private LocalDateTime releaseDate;  // 출고 마감 기한
+
+    @ManyToMany
+    @JoinTable(name = "loadpalette",
+    joinColumns = @JoinColumn(name = "container_id"),
+    inverseJoinColumns = @JoinColumn(name = "palette_id")
+    )
+    private Set<Palette> containpalettes = new HashSet<>();
 
     @Builder
     public Container(final float weight, final float weightLimit, final LocalDateTime releaseDate) {

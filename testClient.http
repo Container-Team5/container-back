@@ -1,3 +1,19 @@
+PUT http://localhost:8080/container/2/palette/1
+Content-Type: application/json
+
+{
+
+}
+###
+POST http://localhost:8080/loadcp
+Content-Type: application/json
+
+{
+  "containerid" : 2,
+  "paletteid" : 1
+}
+
+###
 GET http://localhost:8080/account/checkid/hi
 Accept: application/json
 
@@ -17,9 +33,9 @@ POST http://localhost:8080/container
 Content-Type: application/json
 
 {
-  "releaseDate" : "2023-05-29T02:19",
-  "weight" : 10.0,
-  "weightLimit" : 300.0
+  "releaseDate" : "2023-06-29T02:19",
+  "weight" : 15.0,
+  "weightLimit" : 250.0
 }
 
 ###
@@ -60,4 +76,14 @@ Content-Type: application/json
   "position" : "대리",
   "admCall" : "01012345678",
   "roles" : "ROLE_ADMIN"
+}
+
+###
+POST http://localhost:8080/container
+Content-Type: application/json
+
+{
+  "releaseDate" : "2023-06-29T02:19",
+  "weight" : 5.0,
+  "weightLimit" : 40.0
 }

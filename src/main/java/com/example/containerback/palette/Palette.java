@@ -1,6 +1,8 @@
 package com.example.containerback.palette;
 
+import com.example.containerback.container.Container;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -9,6 +11,10 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @ToString
 @Getter
@@ -21,6 +27,7 @@ import java.time.LocalDateTime;
 public class Palette {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //MySQL의 AUTO_INCREMENT를 사용
+    @Column(name="palette_Id")
     private Long paletteId; // 팔레트 ID
 
     @Column(name = "p_name", nullable = false)
@@ -56,6 +63,11 @@ public class Palette {
 
     @Column(nullable = false)
     private String finalDel;  // 최종 배송지
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "containpalettes")
+    private Set<Container> containerSet = new HashSet<>();
+
 
     @Builder
     public Palette(final String paletteName, final int quantity, final float height, final float volume, final float weight, final LocalDateTime deadLine, final String firstDel, final String finalDel){
