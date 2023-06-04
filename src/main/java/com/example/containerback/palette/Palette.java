@@ -70,8 +70,9 @@ public class Palette {
     private Set<Container> containerSet = new HashSet<>();
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "orderpalettes")
-    private Set<Admin> adminSet = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "orderpalettes")
+    private Admin admin;
 
 
     @Builder

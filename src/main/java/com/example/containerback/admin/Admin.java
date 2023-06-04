@@ -57,12 +57,6 @@ public class Admin {
     @ElementCollection(fetch = FetchType.LAZY)
     private List<UserRole> roles;
 
-    @ManyToMany
-    @JoinTable(name = "orderpalette",
-            joinColumns = @JoinColumn(name = "index_ad_id"),
-            inverseJoinColumns = @JoinColumn(name = "palette_id")
-    )
-    private Set<Palette> orderpalettes = new HashSet<>();
 
     public Admin(String userId, String password, String facName, String adName, String rep, String department, String position, String admCall, String location, UserStatus state, String refreshToken, List<UserRole> roles) {
         this.userId = userId;
