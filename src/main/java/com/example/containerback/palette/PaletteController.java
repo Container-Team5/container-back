@@ -1,6 +1,9 @@
 package com.example.containerback.palette;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -14,8 +17,11 @@ public class PaletteController {
     private final PaletteRepository paletteRepository;
 
     @PostMapping("/palette")
-    public Long save(@RequestBody final PaletteSaveRequestDto requestDto) {
-        return paletteService.save(requestDto);
+    public Long save(
+            @RequestBody final PaletteSaveRequestDto requestDto
+    ) {
+        String userId = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return paletteService.save(requestDto, userId);
     }
 
     @GetMapping("/palette/{id}")
