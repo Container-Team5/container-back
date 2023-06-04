@@ -1,12 +1,9 @@
 package com.example.containerback.admin;
 
-import com.example.containerback.palette.Palette;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @ToString
 @Data
