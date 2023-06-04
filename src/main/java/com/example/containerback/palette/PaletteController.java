@@ -48,4 +48,9 @@ public class PaletteController {
             return paletteRepository.findAllByDeadLineGreaterThanEqualAndDeadLineLessThanEqual(dLineFrom, dLineTo);
         return paletteRepository.findAll();
     }
+
+    @GetMapping("/palette/Load/{containerId}")
+    public void find() {
+
+    }
 }

@@ -47,4 +47,5 @@ public class ContainerController {
     ){
         return containerService.containPalettesToContainer(containerId, paletteId);
     }
+
 }
