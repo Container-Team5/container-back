@@ -1,5 +1,6 @@
 package com.example.containerback.palette;
 
+import com.example.containerback.admin.Admin;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,7 +41,7 @@ public class PaletteSaveRequestDto {
         this.firstDel = firstDel;
         this.finalDel = finalDel;
     }
-    public Palette toEntity(){
+    public Palette toEntity(Admin admin){
         return Palette.builder()
                 .paletteName(pName)
                 .quantity(quantity)
@@ -50,6 +51,7 @@ public class PaletteSaveRequestDto {
                 .deadLine(dLine)
                 .firstDel(firstDel)
                 .finalDel(finalDel)
+                .admin(admin)
                 .build();
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -82,11 +83,11 @@ public class JwtTokenProvider {
     }
 
     public String getUserId(Claims claims) {
-        return claims.getSubject();
+        return claims.get("userId", String.class);
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(Claims claims) {
-        List<String> userId = claims.get("userId", List.class);
-        return userId.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+        List<String> roles = claims.get("roles", List.class);
+        return roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 }

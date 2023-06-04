@@ -52,11 +52,11 @@ public class AuthController {
         return this.authService.refreshAccessToken(refreshRequest);
     }
 
-    /*@PutMapping("/amdin/{IndexAdId}/palette/{paletteId}")
+    @PutMapping("/amdin/{IndexAdId}/palette/{paletteId}")
     public Admin orderPalettesToAdmin(
             @PathVariable Long IndexAdId,
             @PathVariable Long paletteId
     ){
         return authService.orderPalettesToAdmin(IndexAdId, paletteId);
-    }*/
+    }
 }

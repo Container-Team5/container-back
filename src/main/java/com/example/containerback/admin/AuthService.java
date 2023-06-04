@@ -104,15 +104,18 @@ public class AuthService {
                 .build();
     }
 
-//    public Admin orderPalettesToAdmin(Long IndexAdId, Long paletteId) {
-//        Set<Palette> paletteSet = null;
-//        Admin admin = adminRepository.findById(IndexAdId).get();
-//        Palette palette = paletteRepository.findById(paletteId).get();
-//        paletteSet = admin.getOrderpalettes();
+    @Transactional
+    public Admin orderPalettesToAdmin(Long IndexAdId, Long paletteId) {
+        Set<Palette> paletteSet = null;
+        Admin admin = adminRepository.findById(IndexAdId).get();
+        Palette palette = paletteRepository.findById(paletteId).get();
+        palette.setAdmin(admin);
+//        paletteSet = admin.
 //        paletteSet.add(palette);
 //        admin.setOrderpalettes(paletteSet);
 //        return adminRepository.save(admin);
-//    }
+        return admin;
+    }
 
 
 }

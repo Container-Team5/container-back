@@ -19,6 +19,7 @@ import java.util.Set;
 
 @ToString
 @Getter
+@Setter
 @DynamicInsert
 @DynamicUpdate
 @AllArgsConstructor
@@ -76,7 +77,7 @@ public class Palette {
 
 
     @Builder
-    public Palette(final String paletteName, final int quantity, final float height, final float volume, final float weight, final LocalDateTime deadLine, final String firstDel, final String finalDel){
+    public Palette(final String paletteName, final int quantity, final float height, final float volume, final float weight, final LocalDateTime deadLine, final String firstDel, final String finalDel, final Admin admin){
         this.paletteName = paletteName;
         this.quantity = quantity;
         this.height = height;
@@ -85,5 +86,6 @@ public class Palette {
         this.deadLine = deadLine;
         this.firstDel = firstDel;
         this.finalDel = finalDel;
+        this.admin = admin;
     }
 }
