@@ -30,8 +30,10 @@ public class PaletteSaveRequestDto {
 
     public String finalDel;  // 최종 배송지
 
+    public Long containerId;
+
     @Builder
-    public PaletteSaveRequestDto(final String pName, final int quantity, final float height, final float weight, final LocalDateTime dLine, final String firstDel, final String finalDel){
+    public PaletteSaveRequestDto(final String pName, final int quantity, final float height, final float weight, final LocalDateTime dLine, final String firstDel, final String finalDel, final Long containerId){
         this.pName = pName;
         this.quantity = quantity;
         this.height = height;
@@ -40,6 +42,7 @@ public class PaletteSaveRequestDto {
         this.dLine = dLine;
         this.firstDel = firstDel;
         this.finalDel = finalDel;
+        this.containerId = containerId;
     }
     public Palette toEntity(Admin admin){
         return Palette.builder()
@@ -52,6 +55,7 @@ public class PaletteSaveRequestDto {
                 .firstDel(firstDel)
                 .finalDel(finalDel)
                 .admin(admin)
+                .containerId(containerId)
                 .build();
     }
 }

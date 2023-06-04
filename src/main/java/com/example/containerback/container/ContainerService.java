@@ -20,13 +20,5 @@ public class ContainerService {
         return containerRepository.save(requestDto.toEntity()).getContainerId();
     }
 
-    public Container containPalettesToContainer(Long containerId, Long paletteId) {
-        Set<Palette> paletteSet = null;
-        Container container = containerRepository.findById(containerId).get();
-        Palette palette = paletteRepository.findById(paletteId).get();
-        paletteSet = container.getContainpalettes();
-        paletteSet.add(palette);
-        container.setContainpalettes(paletteSet);
-        return containerRepository.save(container);
-    }
+
 }
