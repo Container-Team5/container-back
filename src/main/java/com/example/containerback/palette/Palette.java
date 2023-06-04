@@ -69,9 +69,8 @@ public class Palette {
     @ManyToMany(mappedBy = "containpalettes")
     private Set<Container> containerSet = new HashSet<>();
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "orderpalettes")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "index_ad_id")
     private Admin admin;
 
 
