@@ -57,13 +57,6 @@ public class Container {
     @Column(nullable = false)
     private LocalDateTime releaseDate;  // 출고 마감 기한
 
-    @ManyToMany
-    @JoinTable(name = "loadpalette",
-    joinColumns = @JoinColumn(name = "container_id"),
-    inverseJoinColumns = @JoinColumn(name = "palette_id")
-    )
-    private Set<Palette> containpalettes = new HashSet<>();
-
     @Builder
     public Container(final float weight, final float weightLimit, final LocalDateTime releaseDate) {
         this.weight = weight;

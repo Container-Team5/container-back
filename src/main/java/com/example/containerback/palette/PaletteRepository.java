@@ -12,4 +12,5 @@ public interface PaletteRepository extends JpaRepository<Palette, Long>, Palette
     List<Palette> findAllByPaletteId(Long paletteId);
     List<Palette> findByPaletteNameContains(String pName);
     List<Palette> findAllByDeadLineGreaterThanEqualAndDeadLineLessThanEqual(LocalDateTime DeadLineFrom, LocalDateTime DeadLineTo);
+    List<Palette> findAllByContainerId(Long containerId);
 }

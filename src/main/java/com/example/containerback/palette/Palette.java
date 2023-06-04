@@ -66,9 +66,8 @@ public class Palette {
     @Column(nullable = false)
     private String finalDel;  // 최종 배송지
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "containpalettes")
-    private Set<Container> containerSet = new HashSet<>();
+    @Column
+    private Long containerId;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "index_ad_id")
@@ -76,7 +75,7 @@ public class Palette {
 
 
     @Builder
-    public Palette(final String paletteName, final int quantity, final float height, final float volume, final float weight, final LocalDateTime deadLine, final String firstDel, final String finalDel, final Admin admin){
+    public Palette(final String paletteName, final int quantity, final float height, final float volume, final float weight, final LocalDateTime deadLine, final String firstDel, final String finalDel, final Admin admin, final Long containerId){
         this.paletteName = paletteName;
         this.quantity = quantity;
         this.height = height;
@@ -86,5 +85,6 @@ public class Palette {
         this.firstDel = firstDel;
         this.finalDel = finalDel;
         this.admin = admin;
+        this.containerId = containerId;
     }
 }

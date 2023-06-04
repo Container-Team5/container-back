@@ -40,12 +40,4 @@ public class ContainerController {
         return containerRepository.findAll();
     }
 
-    @PutMapping("/container/{containerId}/palette/{paletteId}")
-    public Container containPalettesToContainer(
-            @PathVariable Long containerId,
-            @PathVariable Long paletteId
-    ){
-        return containerService.containPalettesToContainer(containerId, paletteId);
-    }
-
 }

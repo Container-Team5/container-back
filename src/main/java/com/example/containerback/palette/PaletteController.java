@@ -38,7 +38,8 @@ public class PaletteController {
             @RequestParam(required = false) String pName,
             //localhost:8080/palette?pName=이름&dLineFrom=날짜&dLineTo=날짜
             @RequestParam(required = false) LocalDateTime dLineFrom,
-            @RequestParam(required = false) LocalDateTime dLineTo
+            @RequestParam(required = false) LocalDateTime dLineTo,
+            @RequestParam(required = false) Long containerId
     ) {
         if(paletteId != null)
             return paletteRepository.findAllByPaletteId(paletteId);
@@ -46,6 +47,8 @@ public class PaletteController {
             return paletteRepository.findByPaletteNameContains(pName);
         if(dLineFrom != null && dLineTo != null)
             return paletteRepository.findAllByDeadLineGreaterThanEqualAndDeadLineLessThanEqual(dLineFrom, dLineTo);
+        if(containerId != null)
+            return paletteRepository.findAllByContainerId(containerId);
         return paletteRepository.findAll();
     }
 
