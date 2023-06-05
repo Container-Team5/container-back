@@ -1,5 +1,11 @@
-PUT http://localhost:8080/container/2/palette/2
+#DELETE http://localhost:8080/delete/palette/2
+#Content-Type: application/json
+#Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJieWUiLCJyb2xlcyI6W10sImlhdCI6MTY4NTkwODExNywiZXhwIjoxNjg1OTA4NzE3fQ.hWY9u5qhdHeu9xWmKw9X4TvTr823rQvpP32CrKfwInI
+###
+
+PUT http://localhost:8080/palette/4/container/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJieWUiLCJyb2xlcyI6W10sImlhdCI6MTY4NTkwMDcyNSwiZXhwIjoxNjg1OTAxMzI1fQ.nxCLfOvwIV19VuPYSuNDzv1yc2LFutu6IMeh50FGu9M
 
 {
 
@@ -23,14 +29,15 @@ POST http://localhost:8080/account/signin
 Content-Type: application/json
 
 {
-  "userId" : "hi",
-  "password" : "0"
+  "userId" : "bye",
+  "password" : "1"
 }
 
 ###
 
 POST http://localhost:8080/container
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJieWUiLCJyb2xlcyI6W10sImlhdCI6MTY4NTg5MTczMywiZXhwIjoxNjg1ODkyMzMzfQ.VJKtErkN5ZlITqDlDU01FT9QW-Lr2Mn6l-dkYwkXUGM
 
 {
   "releaseDate" : "2023-06-29T02:19",
@@ -47,11 +54,11 @@ Accept: application/json
 
 POST http://localhost:8080/palette
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJoaSIsInJvbGVzIjpbXSwiaWF0IjoxNjg1ODcwODYzLCJleHAiOjE2ODU4NzE0NjN9.EczCy8u4ip_fatlvj-eHaIxnbN84RakjWkrhMBi0wcQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJoaSIsInJvbGVzIjpbXSwiaWF0IjoxNjg1OTAwNjIyLCJleHAiOjE2ODU5MDEyMjJ9.mF57Iea4TbmsBtv80SugYzHMvpNt93xV7dnMz56zXyI
 
 {
-  "pName": "밥솥",
-  "quantity": 150,
+  "pName": "전자레인지",
+  "quantity": 461,
   "height": 20.0,
   "weight": 20.0,
   "dLine": "2023-05-30T14:56:10.669",

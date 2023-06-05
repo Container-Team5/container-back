@@ -1,9 +1,7 @@
 package com.example.containerback.palette;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -52,8 +50,36 @@ public class PaletteController {
         return paletteRepository.findAll();
     }
 
-    @GetMapping("/palette/Load/{containerId}")
-    public void find() {
+    @PutMapping("/palette/{paletteId}/container/{containerId}")
+    public Optional<Palette> UpdateContainerId(
+            @RequestBody PaletteSaveRequestDto paletteSaveRequestDto,
+            @PathVariable Long paletteId,
+            @PathVariable Long containerId){
+        Optional<Palette> updatePaletteContainer = paletteRepository.findById(paletteId);
 
+        updatePaletteContainer.ifPresent(selectPalette -> {
+            selectPalette.setContainerId(containerId);
+
+            paletteRepository.save(selectPalette);
+        });
+
+        return updatePaletteContainer;
     }
+
+//    @DeleteMapping("/delete/palette/{paletteId}")
+//    public Optional<Palette> deleteContainerId(
+//            @RequestBody PaletteSaveRequestDto paletteSaveRequestDto,
+//            @PathVariable Long paletteId
+//    ) {
+//        Optional<Palette> deletePaletteContainer = paletteRepository.findById(paletteId);
+//
+//        deletePaletteContainer.ifPresent(deletetPalette ->{
+//            deletetPalette.getContainerId();
+//
+//            paletteRepository.delete(deletetPalette);
+//        });
+//
+//        return deletePaletteContainer;
+//    }
+
 }

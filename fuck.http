@@ -1,22 +1,20 @@
 ####
-PUT http://localhost:8080/container/2/palette/1
-Content-Type: application/json
-
-{
-
-}
+#PUT http://localhost:8080/container/2/palette/1
+#Content-Type: application/json
+#
+#{
+#
+#}
 
 ####
 
 POST http://localhost:8080/palette
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJzb3JyeSIsInJvbGVzIjpbXSwiaWF0IjoxNjg1ODczNDUyLCJleHAiOjE2ODU4NzQwNTJ9.oGcDjn8_dMZHzYUnguOp-N3hkR8uKSHZoMMgO99b7Bc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJoaSIsInJvbGVzIjpbbnVsbF0sImlhdCI6MTY4NTg5MTQwMiwiZXhwIjoxNjg1ODkyMDAyfQ.LhGzrOll0vlAfIdk3aT2LL5ivFbssher0Znh977-bwU
 
 {
   "pName": "Why",
   "quantity": 120,
-  "width": 20.0,
-  "length": 20.0,
   "height": 20.0,
   "weight": 20.0,
   "dLine": "2023-05-24T14:56:20.669",
@@ -86,7 +84,7 @@ Content-Type: application/json
   "department" : "물류팀",
   "position" : "대리",
   "admCall" : "01012345678",
-  "roles" : "ROLE_ADMIN"
+  "roles" : "ROLE_USER"
 }
 
 ####
@@ -136,7 +134,7 @@ POST http://localhost:8080/account/signin
 Content-Type: application/json
 
 {
-  "userId" : "sorry",
-  "password" : "3"
+  "userId" : "hi",
+  "password" : "0"
 }
 

@@ -27,5 +27,7 @@ public class PaletteService {
     @Transactional
     public Long save(final PaletteSaveRequestDto requestDto, String userId) {
         Admin admin = adminRepository.findByUserIdAndState(userId, UserStatus.NORMAL, Admin.class).get();
-        return paletteRepository.save(requestDto.toEntity(admin)).getPaletteId();}
+        return paletteRepository.save(requestDto.toEntity(admin)).getPaletteId();
+    }
+
 }
