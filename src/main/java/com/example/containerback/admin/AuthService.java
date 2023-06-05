@@ -1,8 +1,11 @@
 package com.example.containerback.admin;
 
 import com.example.containerback.*;
+import com.example.containerback.container.Container;
 import com.example.containerback.exception.CantSignInException;
 import com.example.containerback.exception.IdAlreadyExistsException;
+import com.example.containerback.palette.Palette;
+import com.example.containerback.palette.PaletteRepository;
 import com.example.containerback.request.RefreshRequest;
 import com.example.containerback.request.SignUpRequest;
 import com.example.containerback.response.RefreshResponse;
@@ -13,12 +16,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class AuthService {
 
     private final AdminRepository adminRepository;
+
+    private final PaletteRepository paletteRepository;
     private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
 
@@ -96,6 +102,19 @@ public class AuthService {
         return RefreshResponse.builder()
                 .accessToken(jwtTokenProvider.createAccessToken(admin.getUserId(), admin.getRoles()))
                 .build();
+    }
+
+    @Transactional
+    public Admin orderPalettesToAdmin(Long IndexAdId, Long paletteId) {
+        Set<Palette> paletteSet = null;
+        Admin admin = adminRepository.findById(IndexAdId).get();
+        Palette palette = paletteRepository.findById(paletteId).get();
+        palette.setAdmin(admin);
+//        paletteSet = admin.
+//        paletteSet.add(palette);
+//        admin.setOrderpalettes(paletteSet);
+//        return adminRepository.save(admin);
+        return admin;
     }
 
 

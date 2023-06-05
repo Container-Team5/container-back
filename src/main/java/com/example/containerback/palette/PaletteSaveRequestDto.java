@@ -1,5 +1,6 @@
 package com.example.containerback.palette;
 
+import com.example.containerback.admin.Admin;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,31 +30,32 @@ public class PaletteSaveRequestDto {
 
     public String finalDel;  // 최종 배송지
 
+    public Long containerId;
+
     @Builder
-    public PaletteSaveRequestDto(final String pName, final int quantity, final float width, final float length, final float height, final float weight, final LocalDateTime dLine, final String firstDel, final String finalDel){
+    public PaletteSaveRequestDto(final String pName, final int quantity, final float height, final float weight, final LocalDateTime dLine, final String firstDel, final String finalDel, final Long containerId){
         this.pName = pName;
         this.quantity = quantity;
-        this.width = width;
-        this.length = length;
         this.height = height;
-        this.volume = this.length * this.height * this.width;
+        this.volume = this.length * 1.21F;
         this.weight = weight;
         this.dLine = dLine;
         this.firstDel = firstDel;
         this.finalDel = finalDel;
+        this.containerId = containerId;
     }
-    public Palette toEntity(){
+    public Palette toEntity(Admin admin){
         return Palette.builder()
                 .paletteName(pName)
                 .quantity(quantity)
-                .width(width)
-                .length(length)
                 .height(height)
                 .volume(volume)
                 .weight(weight)
                 .deadLine(dLine)
                 .firstDel(firstDel)
                 .finalDel(finalDel)
+                .admin(admin)
+                .containerId(containerId)
                 .build();
     }
 }
