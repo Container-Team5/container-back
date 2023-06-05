@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -116,6 +117,14 @@ public class AuthService {
 //        return adminRepository.save(admin);
         return admin;
     }
+
+    @Transactional
+    public Long getIndexId(String userId) {
+        Admin admin = adminRepository.findAdminsByUserId(userId);
+        Long indexId = admin.getIndexAdId();
+        return indexId;
+    }
+
 
 
 }
