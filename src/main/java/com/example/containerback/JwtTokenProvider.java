@@ -29,7 +29,7 @@ public class JwtTokenProvider {
     @Value("${jwt.secretKey}")
     private String secretKey;
     private Key key;
-    private final long accessTokenValidMilSecond = 1000L * 60 * 300;
+    private final long accessTokenValidMilSecond = 1000L * 60 * 300;  // 로그인 시간 연장
     private final long refreshTokenValidMilSecond = 1000L * 60 * 60 * 24 * 7;
 
     @PostConstruct
