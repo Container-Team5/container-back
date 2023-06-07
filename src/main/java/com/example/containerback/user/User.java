@@ -1,4 +1,4 @@
-package com.example.containerback.admin;
+package com.example.containerback.user;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,9 +12,9 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Admin")
+@Table(name = "User")
 @Entity
-public class Admin {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //MySQL의 AUTO_INCREMENT를 사용
     private Long IndexAdId;  // ID index 관리자, 사옹자
@@ -55,7 +55,7 @@ public class Admin {
     private List<UserRole> roles;
 
 
-    public Admin(String userId, String password, String facName, String adName, String rep, String department, String position, String admCall, String location, UserStatus state, String refreshToken, List<UserRole> roles) {
+    public User(String userId, String password, String facName, String adName, String rep, String department, String position, String admCall, String location, UserStatus state, String refreshToken, List<UserRole> roles) {
         this.userId = userId;
         this.password = password;
         this.facName = facName;

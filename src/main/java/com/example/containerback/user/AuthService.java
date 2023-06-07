@@ -1,7 +1,6 @@
-package com.example.containerback.admin;
+package com.example.containerback.user;
 
 import com.example.containerback.*;
-import com.example.containerback.container.Container;
 import com.example.containerback.exception.CantSignInException;
 import com.example.containerback.exception.IdAlreadyExistsException;
 import com.example.containerback.palette.Palette;
@@ -16,14 +15,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final AdminRepository adminRepository;
+    private final UserRepository userRepository;
 
     private final PaletteRepository paletteRepository;
     private final JwtTokenProvider jwtTokenProvider;
@@ -40,22 +38,22 @@ public class AuthService {
      */
     @Transactional
     public SignInResponse signIn(String userId, String password) {
-        Admin admin = this.adminRepository.findByUserIdAndState(userId, UserStatus.NORMAL, Admin.class)
+        User user = this.userRepository.findByUserIdAndState(userId, UserStatus.NORMAL, User.class)
                 .orElseThrow(() -> new CantSignInException(userId));
-        if (!passwordEncoder.matches(password, admin.getPassword()))
+        if (!passwordEncoder.matches(password, user.getPassword()))
             throw new CantSignInException(userId);
-        admin.updateRefreshToken(jwtTokenProvider.createRefreshToken(admin.getPassword(), admin.getRoles()));
+        user.updateRefreshToken(jwtTokenProvider.createRefreshToken(user.getPassword(), user.getRoles()));
 
         return SignInResponse.builder()
-                .accessToken(jwtTokenProvider.createAccessToken(admin.getUserId(), admin.getRoles()))
-                .refreshToken(admin.getRefreshToken())
+                .accessToken(jwtTokenProvider.createAccessToken(user.getUserId(), user.getRoles()))
+                .refreshToken(user.getRefreshToken())
                 .build();
     }
 
     @Transactional
     public SignInResponse signUp(SignUpRequest signUpRequest) {
-        Admin admin = adminRepository.save(
-                new Admin(
+        User user = userRepository.save(
+                new User(
                         signUpRequest.getUserId(),
                         passwordEncoder.encode(signUpRequest.getPassword()),
                         signUpRequest.getFacName(),
@@ -71,8 +69,8 @@ public class AuthService {
                 ));
 
         return SignInResponse.builder()
-                .accessToken(jwtTokenProvider.createAccessToken(admin.getUserId(), admin.getRoles()))
-                .refreshToken(admin.getRefreshToken())
+                .accessToken(jwtTokenProvider.createAccessToken(user.getUserId(), user.getRoles()))
+                .refreshToken(user.getRefreshToken())
                 .build();
     }
 
@@ -84,7 +82,7 @@ public class AuthService {
      */
     @Transactional(readOnly = true)
     public void idCheck(String userId) {
-        if (this.adminRepository.findByUserIdAndStateIsNot(userId, UserStatus.WITHDRAWAL).isPresent())
+        if (this.userRepository.findByUserIdAndStateIsNot(userId, UserStatus.WITHDRAWAL).isPresent())
             throw new IdAlreadyExistsException(userId);
     }
 
@@ -97,31 +95,31 @@ public class AuthService {
     @Transactional
     public RefreshResponse refreshAccessToken(RefreshRequest refreshRequest) {
         String refreshId = jwtTokenProvider.getUserId(jwtTokenProvider.getClaimsFromToken(refreshRequest.getRefreshToken()));
-        Admin admin = adminRepository.findByUserIdAndStateAndRefreshToken(refreshId, UserStatus.NORMAL, refreshRequest.getRefreshToken())
+        User user = userRepository.findByUserIdAndStateAndRefreshToken(refreshId, UserStatus.NORMAL, refreshRequest.getRefreshToken())
                 .orElseThrow(() -> new CantSignInException(refreshId));
 
         return RefreshResponse.builder()
-                .accessToken(jwtTokenProvider.createAccessToken(admin.getUserId(), admin.getRoles()))
+                .accessToken(jwtTokenProvider.createAccessToken(user.getUserId(), user.getRoles()))
                 .build();
     }
 
     @Transactional
-    public Admin orderPalettesToAdmin(Long IndexAdId, Long paletteId) {
+    public User orderPalettesToAdmin(Long IndexAdId, Long paletteId) {
         Set<Palette> paletteSet = null;
-        Admin admin = adminRepository.findById(IndexAdId).get();
+        User user = userRepository.findById(IndexAdId).get();
         Palette palette = paletteRepository.findById(paletteId).get();
-        palette.setAdmin(admin);
+        palette.setUser(user);
 //        paletteSet = admin.
 //        paletteSet.add(palette);
 //        admin.setOrderpalettes(paletteSet);
 //        return adminRepository.save(admin);
-        return admin;
+        return user;
     }
 
     @Transactional
     public Long getIndexId(String userId) {
-        Admin admin = adminRepository.findAdminsByUserId(userId);
-        Long indexId = admin.getIndexAdId();
+        User user = userRepository.findAdminsByUserId(userId);
+        Long indexId = user.getIndexAdId();
         return indexId;
     }
 

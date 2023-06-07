@@ -1,6 +1,6 @@
 package com.example.containerback.palette;
 
-import com.example.containerback.admin.Admin;
+import com.example.containerback.user.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
@@ -65,11 +65,11 @@ public class Palette {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "index_ad_id")
-    private Admin admin;
+    private User user;
 
 
     @Builder
-    public Palette(final String paletteName, final int quantity, final float height, final float volume, final float weight, final LocalDateTime deadLine, final String firstDel, final String finalDel, final Admin admin, final Long containerId){
+    public Palette(final String paletteName, final int quantity, final float height, final float volume, final float weight, final LocalDateTime deadLine, final String firstDel, final String finalDel, final User user, final Long containerId){
         this.paletteName = paletteName;
         this.quantity = quantity;
         this.height = height;
@@ -78,7 +78,7 @@ public class Palette {
         this.deadLine = deadLine;
         this.firstDel = firstDel;
         this.finalDel = finalDel;
-        this.admin = admin;
+        this.user = user;
         this.containerId = containerId;
     }
 }

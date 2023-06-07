@@ -1,12 +1,12 @@
-package com.example.containerback.admin;
+package com.example.containerback.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class AdminService {
+public class UserService {
 
-    private final AdminRepository adminRepository;
+    private final UserRepository userRepository;
 
 }

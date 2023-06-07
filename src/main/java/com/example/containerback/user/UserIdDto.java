@@ -1,8 +1,8 @@
-package com.example.containerback.admin;
+package com.example.containerback.user;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class AdminIdDto {
+public class UserIdDto {
     private String userId;
 }

@@ -1,7 +1,7 @@
 package com.example.containerback.request;
 
 
-import com.example.containerback.admin.UserRole;
+import com.example.containerback.user.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

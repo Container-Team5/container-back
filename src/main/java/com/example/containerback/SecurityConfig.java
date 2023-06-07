@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsUtils;
 
 @Configuration
 @EnableWebSecurity
@@ -20,9 +21,10 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .cors().disable()
+                .cors().and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, objectMapper), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests( request -> {
+                            request.requestMatchers(CorsUtils::isPreFlightRequest).permitAll();
                             request.requestMatchers("/account/**").permitAll();
                             request.anyRequest().authenticated();
                         }

@@ -1,8 +1,8 @@
 package com.example.containerback.palette;
 
-import com.example.containerback.admin.Admin;
-import com.example.containerback.admin.AdminRepository;
-import com.example.containerback.admin.UserStatus;
+import com.example.containerback.user.User;
+import com.example.containerback.user.UserRepository;
+import com.example.containerback.user.UserStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class PaletteService {
 
-    private final AdminRepository adminRepository;
+    private final UserRepository userRepository;
     private final PaletteRepository paletteRepository;
 
     public List<Palette> getPaletteDetails(Long paletteId) {
@@ -26,8 +26,8 @@ public class PaletteService {
 
     @Transactional
     public Long save(final PaletteSaveRequestDto requestDto, String userId) {
-        Admin admin = adminRepository.findByUserIdAndState(userId, UserStatus.NORMAL, Admin.class).get();
-        return paletteRepository.save(requestDto.toEntity(admin)).getPaletteId();
+        User user = userRepository.findByUserIdAndState(userId, UserStatus.NORMAL, User.class).get();
+        return paletteRepository.save(requestDto.toEntity(user)).getPaletteId();
     }
 
 }

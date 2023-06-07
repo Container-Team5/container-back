@@ -6,8 +6,9 @@ import jakarta.persistence.EntityManager;
 
 import java.util.List;
 
-import static com.example.containerback.admin.QAdmin.admin;
+// import static com.example.containerback.user.QUser.admin;
 import static com.example.containerback.palette.QPalette.palette;
+import static com.example.containerback.user.QUser.user;
 
 public class PaletteCustomRepositoryImpl implements PaletteCustomRepository {
     private final JPAQueryFactory queryFactory;
@@ -47,8 +48,8 @@ public class PaletteCustomRepositoryImpl implements PaletteCustomRepository {
         return queryFactory
                 .select(palette)
                 .from(palette)
-                .join(palette.admin, admin)
-                .where(admin.userId.eq(userId))
+                .join(palette.user, user)
+                .where(user.userId.eq(userId))
                 .fetch();
     }
 
